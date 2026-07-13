@@ -1,0 +1,31 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Variables de entorno (credenciales - NUNCA subir esto)
+.env
+
+# Logs
+*.log
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores / IDEs
+.vscode/
+.idea/
+
+# Flask
+instance/
+.flaskenv
+
+# Base de datos local (si usás SQLite en algún momento)
+*.sqlite3
+*.db
