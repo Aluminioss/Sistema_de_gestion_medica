@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo Médico - Clínica Salud Integral</title>
+    <link rel="stylesheet" href="/static/lista.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Equipo Médico</h1>
+            <p>Gestión de Médicos Registrados - Clínica Salud Integral</p>
+        </header>
+
+        <div class="actions">
+            <a href="/medico" class="btn btn-primary">➕ Registrar Nuevo Médico</a>
+            <a href="/" class="btn btn-secondary">← Volver al Dashboard</a>
+        </div>
+
+        {% if medicos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre y Apellido</th>
+                    <th>DNI</th>
+                    <th>Especialidad</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medico in medicos %}
+                <tr>
+                    <td><strong>{{ medico.id_medico }}</strong></td>
+                    <td>{{ medico.nombre_apellido }}</td>
+                    <td>{{ medico.dni }}</td>
+                    <td><span class="especialidad-badge">{{ medico.especialidad }}</span></td>
+                    <td>{{ medico.telefono }}</td>
+                    <td>{{ medico.email }}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <a href="/editar_medico/{{ medico.id_medico }}" class="btn btn-primary btn-edit">✏️ Editar</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p class="total-records">
+            <strong>Total de médicos registrados:</strong> {{ medicos|length }}
+        </p>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-state-icon"></div>
+            <p>No hay médicos registrados aún.</p>
+            <a href="/medico" class="btn btn-primary">Registrar Primer Médico</a>
+            <a href="/" class="back-link">← Volver al Dashboard</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

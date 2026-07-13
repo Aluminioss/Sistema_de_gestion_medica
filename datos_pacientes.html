@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Paciente - Clínica Salud Integral</title>
+    <link rel="stylesheet" href="/static/paciente.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Clínica Salud Integral</h1>
+            <p>Modificación de Historia Clínica</p>
+        </header>
+
+        <form action="/actualizar_paciente" method="POST" id="form-editar">
+            
+            <fieldset>
+                <legend>Datos Personales</legend>                
+                <div class="form-group">
+                    <label for="historia_clinica">N° de Historia Clínica:</label>
+                    <input type="text" id="historia_clinica" name="historia_clinica" value="{{ paciente.historia_clinica }}" readonly style="background-color: #e9ecef; font-weight: bold;">
+                </div>
+                <div class="form-group">
+                    <label for="nombre_apellido">Nombre y Apellido:</label>
+                    <input type="text" id="nombre_apellido" name="nombre_apellido" value="{{ paciente.nombre_apellido }}" required>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="dni">DNI:</label>
+                        <input type="text" id="dni" name="dni" value="{{ paciente.dni }}" required>
+                    </div>
+                    <div class="col">
+                        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ paciente.fecha_nacimiento }}" required>
+                    </div>
+                    <div class="col">
+                        <label for="edad">Edad:</label>
+                        <input type="number" id="edad" name="edad" value="{{ paciente.edad }}" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" value="{{ paciente.direccion }}" required>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" value="{{ paciente.telefono }}" required>
+                    </div>
+                    <div class="col">
+                        <label for="obra_social">Obra Social:</label>
+                        <input type="text" id="obra_social" name="obra_social" value="{{ paciente.obra_social }}" required>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Información Médica</legend>
+                <div class="form-group">
+                    <label for="grupo_sanguineo">Grupo Sanguíneo:</label>
+                    <input type="text" id="grupo_sanguineo" name="grupo_sanguineo" value="{{ paciente.grupo_sanguineo }}">
+                </div>
+                <div class="form-group">
+                    <label for="alergias">Alergias:</label>
+                    <textarea id="alergias" name="alergias" rows="2">{{ paciente.alergias }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="antecedentes">Antecedentes Médicos:</label>
+                    <textarea id="antecedentes" name="antecedentes" rows="3">{{ paciente.antecedentes }}</textarea>
+                </div>
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a href="/lista_pacientes" class="btn btn-secondary" style="text-decoration: none; text-align: center; padding-top: 10px;">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

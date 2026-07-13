@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Médico - Clínica Salud Integral</title>
+    <link rel="stylesheet" href="/static/medico.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Clínica Salud Integral</h1>
+            <p>Modificar Datos del Profesional</p>
+        </header>
+        <form action="/actualizar_medico" method="POST" id="form-editar-medico">            
+            <fieldset>
+                <legend>Datos Personales</legend>                
+                <div class="form-group">
+                    <label for="id_medico">ID Médico:</label>
+                    <input type="text" id="id_medico" name="id_medico" value="{{ medico.id_medico }}" readonly style="background-color: #e9ecef; font-weight: bold;">
+                </div>
+                <div class="form-group">
+                    <label for="nombre_apellido_med">Nombre y Apellido:</label>
+                    <input type="text" id="nombre_apellido_med" name="nombre_apellido_med" value="{{ medico.nombre_apellido }}" required>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="dni_med">DNI:</label>
+                        <input type="text" id="dni_med" name="dni_med" value="{{ medico.dni }}" required>
+                    </div>
+                    <div class="col">
+                        <label for="telefono_med">Teléfono de Contacto:</label>
+                        <input type="tel" id="telefono_med" name="telefono_med" value="{{ medico.telefono }}" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email_med">Correo Electrónico:</label>
+                    <input type="email" id="email_med" name="email_med" value="{{ medico.email }}" required>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Datos Profesionales</legend>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="matricula">N° de Matrícula (M.N. / M.P.):</label>
+                        <input type="text" id="matricula" name="matricula" value="{{ medico.matricula }}" required>
+                    </div>
+                    <div class="col">
+                        <label for="especialidad">Especialidad Principal:</label>
+                        <select id="especialidad" name="especialidad" required>
+                            <option value="{{ medico.especialidad }}">{{ medico.especialidad }} (Actual)</option>
+                            <option value="Clínica Médica">Clínica Médica</option>
+                            <option value="Pediatría">Pediatría</option>
+                            <option value="Cardiología">Cardiología</option>
+                            <option value="Traumatología">Traumatología</option>
+                            <option value="Ginecología">Ginecología</option>
+                            <option value="Dermatología">Dermatología</option>
+                            <option value="Neurología">Neurología</option>
+                            <option value="Oftalmología">Oftalmología</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dias_atencion">Días y Horarios de Atención:</label>
+                    <textarea id="dias_atencion" name="dias_atencion" rows="2">{{ medico.dias_atencion }}</textarea>
+                </div>
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a href="/lista_medicos" class="btn btn-secondary" style="text-decoration: none; text-align: center; padding-top: 10px;">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

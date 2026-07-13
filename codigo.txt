@@ -1,0 +1,11 @@
+pip install mysql-connector-python
+
+// para ejecutar cada libreria de puente entre la base de datos a l inteprete de python
+
+pip install flash 
+
+// para instalar la libreria para el interprete y con ello tambien para ejecutar las librerias bien
+
+python "nombre del archivo de python" 
+
+// para ejecutar el codigo y con ello estar usando desde un localhost

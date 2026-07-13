@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinica</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>Clínica Salud Integral</h1>
+            <p>Area Administrativa</p>
+        </div>
+
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon"></div>
+                <h3>Nuevo Paciente</h3>
+                <p>Registra un nuevo paciente en el sistema con todos sus datos personales e historial medico</p>
+                <a href="/paciente" class="btn">Registrar Paciente</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"></div>
+                <h3>Nuevo Médico</h3>
+                <p>Agrega un nuevo médico con su información y especialidad.</p>
+                <a href="/medico" class="btn btn-secondary">Registrar Médico</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"></div>
+                <h3>Historial Pacientes</h3>
+                <p>Consulta el listado completo de pacientes registrados y edita sus datos.</p>
+                <a href="/lista_pacientes" class="btn btn-tertiary">Ver Historial</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"></div>
+                <h3>Equipo Médico</h3>
+                <p>Visualiza y edita la información de todos los médicos registrados.</p>
+                <a href="/lista_medicos" class="btn btn-secondary">Ver Médicos</a>
+            </div>
+        </div>
+
+        <div class="quick-stats">
+            <h2 class="stats-title">Historial en el Sistema visualizado</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">{{ total_pacientes }}</div>
+                    <div class="stat-label">Pacientes Registrados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">{{ total_medicos }}</div>
+                    <div class="stat-label">Médicos en Planta</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">{{ fecha_actual }}</div>
+                    <div class="stat-label">Fecha Actual</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

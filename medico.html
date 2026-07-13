@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Médicos - Clínica Salud Integral</title>
+    <link rel="stylesheet" href="/static/medico.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Clínica Salud Integral</h1>
+            <p>Registro del Personal Médico</p>
+        </header>
+
+        <form action="/guardar_medico" method="POST" id="form-medico">
+            <fieldset>
+                <legend>Datos Personales</legend>
+                
+                <div class="form-group">
+                    <label for="nombre_apellido_med">Nombre y Apellido:</label>
+                    <input type="text" id="nombre_apellido_med" name="nombre_apellido_med" required>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="dni_med">DNI:</label>
+                        <input type="text" id="dni_med" name="dni_med" required>
+                    </div>
+                    <div class="col">
+                        <label for="telefono_med">Teléfono de Contacto:</label>
+                        <input type="tel" id="telefono_med" name="telefono_med" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email_med">Correo Electrónico:</label>
+                    <input type="email" id="email_med" name="email_med" required style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 4px;">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos Profesionales</legend>
+
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="matricula">N° de Matrícula (M.N. / M.P.):</label>
+                        <input type="text" id="matricula" name="matricula" required>
+                    </div>
+                    <div class="col">
+                        <label for="especialidad">Especialidad Principal:</label>
+                        <select id="especialidad" name="especialidad" required>
+                            <option value="">Seleccione especialidad...</option>
+                            <option value="Clínica Médica">Clínica Médica</option>
+                            <option value="Pediatría">Pediatría</option>
+                            <option value="Cardiología">Cardiología</option>
+                            <option value="Traumatología">Traumatología</option>
+                            <option value="Ginecología">Ginecología</option>
+                            <option value="Dermatología">Dermatología</option>
+                            <option value="Neurología">Neurología</option>
+                            <option value="Oftalmología">Oftalmología</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dias_atencion">Días y Horarios de Atención (Opcional):</label>
+                    <textarea id="dias_atencion" name="dias_atencion" rows="2" placeholder="Ej: Lunes y Miércoles de 09:00 a 14:00 hs."></textarea>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Registrar Médico</button>
+                <button type="reset" class="btn btn-secondary">Limpiar Formulario</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

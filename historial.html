@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Pacientes - Clínica Salud Integral</title>
+    <link rel="stylesheet" href="/static/lista.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Historial de Pacientes</h1>
+            <p>Listado Completo de Pacientes Registrados - Clínica Salud Integral</p>
+        </header>
+
+        <div class="actions">
+            <a href="/paciente" class="btn btn-primary"> Registrar Nuevo Paciente</a>
+            <a href="/" class="btn btn-secondary">← Volver al Dashboard</a>
+        </div>
+
+        {% if pacientes %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº Historia Clínica</th>
+                    <th>Nombre y Apellido</th>
+                    <th>DNI</th>
+                    <th>Edad</th>
+                    <th>Grupo Sanguíneo</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                <tr>
+                    <td><strong>#{{ paciente.historia_clinica }}</strong></td>
+                    <td>{{ paciente.nombre_apellido }}</td>
+                    <td>{{ paciente.dni }}</td>
+                    <td>{{ paciente.edad }} años</td>
+                    <td>
+                        {% if paciente.grupo_sanguineo %}
+                            <span class="blood-type">{{ paciente.grupo_sanguineo }}</span>
+                        {% else %}
+                            <span class="no-data">No registrado</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ paciente.telefono }}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <a href="/editar_paciente/{{ paciente.historia_clinica }}" class="btn btn-primary btn-edit">✏️ Ver/Editar</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p class="total-records">
+            <strong>Total de pacientes registrados:</strong> {{ pacientes|length }}
+        </p>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-state-icon">👤</div>
+            <p>No hay pacientes registrados aún.</p>
+            <a href="/paciente" class="btn btn-primary">Registrar Primer Paciente</a>
+            <a href="/" class="back-link">← Volver al Dashboard</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
